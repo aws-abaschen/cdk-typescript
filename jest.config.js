@@ -5,6 +5,14 @@ const { compilerOptions } = require('./tsconfig.json');
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   preset: 'ts-jest',
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  coverageDirectory: 'dist/coverage',
+  reporters: ['default'],
+  roots: ['<rootDir>/src'],
   testEnvironment: 'node',
+  testMatch: ['<rootDir>/src/**/*.test.ts'],
+  //testResultsProcessor: 'jest-sonar-reporter',
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' } )
 };
