@@ -44,10 +44,10 @@ export class NodetsFunction extends Construct {
     declare parameters: { [name: string]: IStringParameter }
     declare logGroup: LogGroup
 
-    constructor(scope: Stack, id: string, { policies, powertools: enablePowerTools, ...props }: NodetsFunctionProps) {
+    constructor(scope: Construct, id: string, { policies, powertools: enablePowerTools, ...props }: NodetsFunctionProps) {
         super(scope, id);
         if (enablePowerTools !== false && !powertools) {
-            powertools = LayerVersion.fromLayerVersionArn(scope, 'powertool-layer', `arn:aws:lambda:${scope.region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:18`);
+            powertools = LayerVersion.fromLayerVersionArn(scope, 'powertool-layer', `arn:aws:lambda:${Stack.of(this).region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:18`);
             commonProps.layers?.push(powertools);
         }
 
