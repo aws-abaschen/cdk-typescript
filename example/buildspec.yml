@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  pre_build:
+    on-failure: ABORT
+    commands:
+    # FIXME use nodejs18 when available
+    - n install 16 && node -v
+    # Fetch all dependencies
+    - npm install -g yarn aws-cdk
+    - yarn
+    # Upgrade AWS CLI to the latest version
+    - pip install --upgrade awscli
+    - cdk doctor
+
+  build:
+    on-failure: ABORT
+    commands:
+    - cdk synth
+    - cdk bootstrap
+    - cdk deploy
+
+  post_build:
+    commands:
+    - echo "done"
+
+cache:
+  paths:
+    - 'node_modules/**/*'
