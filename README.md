@@ -1,5 +1,13 @@
-# aws-cdk-node-ts-boilerplate
-A boilerplate to work with AWS CDK and Typescript with ESM modules
+# CDK Typescript library
+
+## Getting started
+
+```bash
+yarn add @aws-abaschen/cdk-typescript
+mkdir -p src/{functions,layers}
+```
+
+Refer to [this example Stack](example/ExampleStack.ts) and the related [CDK App](example/bin/deploy.ts)
 
 
 ## NodetsFunction
