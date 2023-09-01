@@ -48,7 +48,7 @@ export class NodetsFunction extends Construct {
         super(scope, id);
         if (enablePowerTools !== false) {
             this.powertools = LayerVersion.fromLayerVersionArn(scope, `layer-powertool-${id}`, `arn:aws:lambda:${Stack.of(this).region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:18`);
-            props.layers?.push(this.powertools);
+            (props.layers ??= []).push(this.powertools);
         }
 
         // create a log group to prevent log retention role creation
