@@ -3,7 +3,7 @@
 
 
 "@aws-abaschen/cdk-typescript@file:..":
-  version "0.0.1"
+  version "0.0.2"
   resolved "file:.."
   dependencies:
     aws-cdk-lib "^2.93.0"
@@ -157,6 +157,18 @@ aws-cdk-lib@^2.93.0:
     yaml "1.10.2"
 
 aws-xray-sdk-core@^3.4.1:
+  version "3.5.1"
+  resolved "https://registry.npmjs.org/aws-xray-sdk-core/-/aws-xray-sdk-core-3.5.1.tgz"
+  integrity sha512-Q3S+K/UkDw/M9NnRZbyXNXsjB3amsv+6XhPdomtfzAdyNkf6q+GOQVuWpaLGHunBz91VzpGBzP9Qg0/elm6Cwg==
+  dependencies:
+    "@aws-sdk/service-error-classification" "^3.4.1"
+    "@aws-sdk/types" "^3.4.1"
+    "@types/cls-hooked" "^4.3.3"
+    atomic-batcher "^1.0.2"
+    cls-hooked "^4.2.2"
+    semver "^7.5.3"
+
+aws-xray-sdk-core@^3.5.1:
   version "3.5.1"
   resolved "https://registry.npmjs.org/aws-xray-sdk-core/-/aws-xray-sdk-core-3.5.1.tgz"
   integrity sha512-Q3S+K/UkDw/M9NnRZbyXNXsjB3amsv+6XhPdomtfzAdyNkf6q+GOQVuWpaLGHunBz91VzpGBzP9Qg0/elm6Cwg==

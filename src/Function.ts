@@ -33,7 +33,6 @@ export const commonProps: Partial<NodejsFunctionProps> = {
     },
     layers: [],
 };
-let powertools: ILayerVersion | undefined = undefined;
 
 
 export class NodetsFunction extends Construct {
@@ -43,12 +42,13 @@ export class NodetsFunction extends Construct {
     declare lambda: NodejsFunction
     declare parameters: { [name: string]: IStringParameter }
     declare logGroup: LogGroup
+    declare powertools: ILayerVersion
 
     constructor(scope: Construct, id: string, { policies, powertools: enablePowerTools, ...props }: NodetsFunctionProps) {
         super(scope, id);
-        if (enablePowerTools !== false && !powertools) {
-            powertools = LayerVersion.fromLayerVersionArn(scope, 'powertool-layer', `arn:aws:lambda:${Stack.of(this).region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:18`);
-            commonProps.layers?.push(powertools);
+        if (enablePowerTools !== false) {
+            this.powertools = LayerVersion.fromLayerVersionArn(scope, `layer-powertool-${id}`, `arn:aws:lambda:${Stack.of(this).region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:18`);
+            commonProps.layers?.push(this.powertools);
         }
 
         // create a log group to prevent log retention role creation

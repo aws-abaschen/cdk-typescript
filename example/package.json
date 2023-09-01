@@ -1,11 +1,12 @@
 {
   "name": "cdk-typescript",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Typescript helpers and constructs for AWS CDK",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "prepack": "yarn build",
     "postinstall": "npm link @aws-abaschen/cdk-typescript",
     "test": "jest"
   },
@@ -30,12 +31,13 @@
     "@aws-lambda-powertools/metrics": "^1.12.1",
     "@aws-lambda-powertools/tracer": "^1.12.1",
     "aws-cdk-lib": "^2.93.0",
+    "aws-xray-sdk-core": "^3.5.1",
     "discord-api-types": "^0.37.41",
     "dotenv": "^16.3.1",
     "tweetnacl": "^1.0.3"
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   }
 }

@@ -5,8 +5,7 @@ import { IManagedPolicy, ManagedPolicy } from 'aws-cdk-lib/aws-iam';
 import { LayerVersion } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { readdirSync } from 'fs';
-import { NodetsFunction, NodetsFunctionProps } from '../src/Function';
-import { NodetsLayer } from '@aws-abaschen/cdk-typescript';
+import { NodetsLayer, NodetsFunction, NodetsFunctionProps } from '@aws-abaschen/cdk-typescript';
 
 interface ExampleStackProps extends StackProps {
   readonly app: string
