@@ -1,6 +1,6 @@
 {
   "name": "cdk-typescript",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "Typescript helpers and constructs for AWS CDK",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
