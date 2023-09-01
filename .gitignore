@@ -133,3 +133,4 @@ dist
 cdk.out/
 cdk.context.json
 .env
+**/node_modules/**
