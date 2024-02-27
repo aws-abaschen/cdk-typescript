@@ -18,7 +18,7 @@
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "noImplicitThis": true,
     "alwaysStrict": true,
     "noUnusedLocals": false,

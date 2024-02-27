@@ -98,28 +98,6 @@ export class NodetsFunction extends Construct {
                 resources: ["*"] // todo be restrictive on VPC access
             }));
         }
-        //default tracing is active
-        if (!props.tracing || props.tracing === Tracing.ACTIVE)
-            this.role.addToPrincipalPolicy(new PolicyStatement(
-                {
-                    effect: Effect.ALLOW,
-                    actions: [
-                        "logs:CreateLogDelivery",
-                        "logs:DeleteLogDelivery",
-                        "logs:DescribeLogGroups",
-                        "logs:DescribeResourcePolicies",
-                        "logs:GetLogDelivery",
-                        "logs:ListLogDeliveries",
-                        "logs:PutResourcePolicy",
-                        "logs:UpdateLogDelivery",
-                        "xray:GetSamplingRules",
-                        "xray:GetSamplingTargets",
-                        "xray:PutTelemetryRecords",
-                        "xray:PutTraceSegments"
-                    ],
-                    resources: [`${this.logGroup.logGroupArn}:*`],
-                }
-            ))
 
         const paramEnvs: { [name: string]: string } = {}
         Object.keys(this.parameters).forEach(paramName => {
@@ -138,8 +116,6 @@ export class NodetsFunction extends Construct {
             // force a role, do not let the cdk generate one, important to avoid issues when using grant*
             role: this.role,
             layers: props.layers ? [...commonProps.layers ?? [], ...props.layers] : commonProps.layers,
-            //force the flag to not add the default permissive policy
-            tracing: Tracing.DISABLED,
             // override props
             bundling: {
                 ...commonProps.bundling,
